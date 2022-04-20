@@ -1,0 +1,79 @@
+body{
+    background: black;
+    font-family: 'Indie Flower', cursive;
+    color: white;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-transform: uppercase;
+    font-size: 40px;
+    color: beige;
+    
+}
+
+.btn-header{
+    padding: 30px;
+    margin-top: 40px;
+    border-radius: 10px;
+    border-color: black;
+    font-family: 'Indie Flower', cursive;
+    font-size: 30px;
+    width: 40%;
+}
+
+.btn-header:hover{
+    background-color: rgb(168, 168, 168);
+    color: beige;
+}
+
+.subtitulo{
+    font-size: 30px;
+}
+
+
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+.padre-images{
+    display: flex;
+}
+
+.container-images{
+    width: 200px;
+    height: 200px;
+    background-color: rgb(170, 170, 170);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.container-images:hover{
+    background-color: rgb(224, 224, 224);
+}
+
+
+img{
+    height: auto;
+    width: 80px;
+}
+
+.resultado{
+    font-size: 40px;
+}
