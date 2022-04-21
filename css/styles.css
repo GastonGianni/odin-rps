@@ -74,6 +74,20 @@ img{
     width: 80px;
 }
 
+
+.container-resultado{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .resultado{
-    font-size: 40px;
+    font-size: 50px;
+}
+.resultado-oponente{
+    font-size: 50px;
+}
+.win-lose{
+    font-size: 70px ;
 }
