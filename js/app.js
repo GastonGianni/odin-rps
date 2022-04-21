@@ -1,8 +1,8 @@
 let btn = document.querySelector('.btn-header');
 let main = document.querySelector('.main');
-let piedra = document.querySelector('.piedra');
-let papel = document.querySelector('.papel');
-let tijeras = document.querySelector('.tijeras');
+let piedra = document.querySelector('.container-piedra');
+let papel = document.querySelector('.container-papel');
+let tijeras = document.querySelector('.container-tijeras');
 
 const playerOptions = [piedra,papel,tijeras];
 const computerOptions = ['Piedra','Papel','Tijeras']
@@ -21,8 +21,8 @@ function startGame() {
 
 function choisePiedra(item){
     resultado = document.querySelector('.resultado');
-    piedra.textContent=('Piedra')
-    resultado.textContent=(`Elegiste ${piedra.textContent}`);
+    
+    resultado.textContent=(`Elegiste Piedra`);
 }
 function choisePapel(item){
     resultado = document.querySelector('.resultado');
