@@ -3,8 +3,8 @@ let main = document.querySelector('.main');
 let piedra = document.querySelector('.container-piedra');
 let papel = document.querySelector('.container-papel');
 let tijeras = document.querySelector('.container-tijeras');
+let winLose = document.querySelector('.win-lose')
 let vidas = 5
-
 
 btn.addEventListener('click', startGame);
 piedra.addEventListener('click', choisePiedra,);
@@ -17,25 +17,31 @@ function startGame() {
     main = document.querySelector('.main').style = 'display:flex'
 }
 
-function choisePiedra() {
+function choisePiedra(choise) {
+    choise = 'Piedra!'
     resultado = document.querySelector('.resultado');
-    resultado.textContent = (`Elegiste Piedra`);
+    resultado.textContent = (`Elegiste ${choise}`);
     main = document.querySelector('.main').style = 'display:none'
     computerSelection()
+    match()
 }
 
-function choisePapel() {
+function choisePapel(choise) {
+    choise = 'Papel!'
     resultado = document.querySelector('.resultado');
     resultado.textContent = ('Elegiste Papel!')
     main = document.querySelector('.main').style = 'display:none'
     computerSelection()
+    match()
 }
 
-function choiseTijeras() {
+function choiseTijeras(choise) {
+    choise = 'Tijeras!'
     resultado = document.querySelector('.resultado');
     resultado.textContent = ('Elegiste Tijeras!')
     main = document.querySelector('.main').style = 'display:none';
     computerSelection()
+    match()
 }
 
 const playerOptions = [piedra, papel, tijeras];
@@ -44,11 +50,20 @@ function computerSelection(result) {
     let resultadoOponente = document.querySelector('.resultado-oponente');
     result = Math.floor(Math.random() * 3) + 1;
     switch (result) {
-        case 1: return result= 'piedra', resultadoOponente.textContent=(`Tu oponente eligío ${result}`)
+        case 1: return result= 'Piedra', resultadoOponente.textContent=(`Tu oponente eligío ${result}`)
         case 2: return result= 'Tijeras', resultadoOponente.textContent=(`Tu oponente eligío ${result}`)
         default: return result= 'Papel', resultadoOponente.textContent=(`Tu oponente eligío ${result}`)
      } 
     
+}
+
+function match(){
+    if (computerSelection == 1 && choisePiedra.choise == 'Piedra!'){
+       return winLose.textContent = ('EMPATE')
+    } else if (computerSelection == 1 && choisePapel.choise == 'Papel!'){
+       return winLose.textContent = ('GANASTE!')
+    } else if (computerSelection == 1 && choiseTijeras.choise == 'Tijeras!') 
+    return winLose.textContent = ('PERDISTE :(');
 }
 
 
