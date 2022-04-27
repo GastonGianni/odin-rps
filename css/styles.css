@@ -36,8 +36,8 @@ body{
     color: beige;
 }
 
-.subtitulo{
-    font-size: 30px;
+.main h3{
+    font-size: 60px;
 }
 
 
@@ -90,4 +90,19 @@ img{
 }
 .win-lose{
     font-size: 70px ;
+}
+
+.btn-footer{
+    padding: 30px;
+    margin-top: 40px;
+    border-radius: 10px;
+    border-color: black;
+    font-family: 'Indie Flower', cursive;
+    font-size: 30px;
+    width: 40%;
+    display: none;
+}
+.btn-footer:hover{
+    background-color: rgb(168, 168, 168);
+    color: beige;
 }

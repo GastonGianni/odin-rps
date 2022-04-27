@@ -1,87 +1,92 @@
-let btn = document.querySelector('.btn-header');
-let main = document.querySelector('.main');
-let piedra = document.querySelector('.container-piedra');
-let papel = document.querySelector('.container-papel');
-let tijeras = document.querySelector('.container-tijeras');
-let winLose = document.querySelector('.win-lose')
-let vidas = 5
+let computerSelection = '';
+let playerSelection = "";
 
-btn.addEventListener('click', startGame);
-piedra.addEventListener('click', choisePiedra,);
-papel.addEventListener('click', choisePapel,);
-tijeras.addEventListener('click', choiseTijeras,);
+let piedra = document.querySelector(".container-piedra");
+let papel = document.querySelector(".container-papel");
+let tijeras = document.querySelector(".container-tijeras");
 
+const btnStart = document.querySelector('.btn-header')
+const main = document.querySelector('main')
+const btnRestart = document.querySelector('.btn-footer')
 
-function startGame() {
-    btn = document.querySelector('.btn-header').style = 'display: none';
-    main = document.querySelector('.main').style = 'display:flex'
+const winLose = document.querySelector('.win-lose')
+const resultado = document.querySelector('.resultado')
+
+btnRestart.addEventListener('click', () => location.reload())
+
+btnStart.addEventListener('click', startGame)
+
+piedra.addEventListener("click", () => {
+  playerSelection = piedra.dataset.choiseType;
+  computerSelection = computerPlay()  
+  winLose.textContent=(playRound(playerSelection, computerSelection));
+  resultado.textContent=`Elegiste ${playerSelection} y tu oponente eligió ${computerSelection}`;
+  main.style.display= 'none'
+  btnRestart.style.display = 'block'
+});
+papel.addEventListener("click", () => {
+  playerSelection = papel.dataset.choiseType;
+  computerSelection = computerPlay()  
+  winLose.textContent=(playRoundDos(playerSelection, computerSelection));
+  resultado.textContent=`Elegiste ${playerSelection} y tu oponente eligió ${computerSelection}`;
+  main.style.display= 'none'
+  btnRestart.style.display = 'block'
+});
+tijeras.addEventListener("click", () => {
+  playerSelection = tijeras.dataset.choiseType;
+  computerSelection = computerPlay()  
+  winLose.textContent=(playRoundTres(playerSelection, computerSelection));
+  resultado.textContent=`Elegiste ${playerSelection} y tu oponente eligió ${computerSelection}`;
+  main.style.display= 'none'
+  btnRestart.style.display = 'block'
+});
+
+function startGame(){
+    btnStart.style.display= 'none'
+    main.style.display= 'flex'
 }
 
-function choisePiedra(choise) {
-    choise = 'Piedra!'
-    resultado = document.querySelector('.resultado');
-    resultado.textContent = (`Elegiste ${choise}`);
-    main = document.querySelector('.main').style = 'display:none'
-    computerSelection()
-    match()
+function computerPlay() {
+  choise = Math.floor(Math.random() * 3) + 1;
+  switch (choise) {
+    case 1:
+      return (choise = "Piedra");
+    case 2:
+      return (choise = "Papel");
+    default:
+      return (choise = "Tijeras");
+  }
 }
 
-function choisePapel(choise) {
-    choise = 'Papel!'
-    resultado = document.querySelector('.resultado');
-    resultado.textContent = ('Elegiste Papel!')
-    main = document.querySelector('.main').style = 'display:none'
-    computerSelection()
-    match()
-}
+function playRound(playerSelection, computerSelection) {
+  if ((playerSelection = "Piedra" && computerSelection == "Piedra")) {
+    return "EMPATE!";
+  } else if ((playerSelection = "Piedra" && computerSelection == "Papel")) {
+    return "PERDISTE";
+  } else if ((playerSelection = "Piedra" && computerSelection == "Tijeras")) {
+    return "GANASTE!";
+  }}
 
-function choiseTijeras(choise) {
-    choise = 'Tijeras!'
-    resultado = document.querySelector('.resultado');
-    resultado.textContent = ('Elegiste Tijeras!')
-    main = document.querySelector('.main').style = 'display:none';
-    computerSelection()
-    match()
-}
-
-const playerOptions = [piedra, papel, tijeras];
-
-function computerSelection(result) {
-    let resultadoOponente = document.querySelector('.resultado-oponente');
-    result = Math.floor(Math.random() * 3) + 1;
-    switch (result) {
-        case 1: return result = 'Piedra', resultadoOponente.textContent = (`Tu oponente eligío ${result}`)
-        case 2: return result = 'Tijeras', resultadoOponente.textContent = (`Tu oponente eligío ${result}`)
-        default: return result = 'Papel', resultadoOponente.textContent = (`Tu oponente eligío ${result}`)
+function playRoundDos(playerSelection,computerSelection){
+    if (playerSelection = 'Papel' && computerSelection == 'Piedra'){
+        return 'GANASTE!'
+    } else if (playerSelection = 'Papel' && computerSelection == 'Papel'){
+        return 'EMPATE!'
+    }else if (playerSelection = 'Papel' && computerSelection == 'Tijeras'){
+      return 'PERDISTE!'
     }
-
 }
 
-function match() {
-    if (computerSelection == 1 && choisePiedra.choise == 'Piedra!') {
-        return winLose.textContent = ('EMPATE')
-    } else if (computerSelection == 1 && choisePapel.choise == 'Papel!') {
-        return winLose.textContent = ('GANASTE!')
-    } else if (computerSelection == 1 && choiseTijeras.choise == 'Tijeras!')
-        return winLose.textContent = ('PERDISTE :(');
+function playRoundTres(playerSelection, computerSelection){
+    if (playerSelection = 'Tijeras' && computerSelection == 'Piedra'){
+        return 'PERDISTE!'
+    } else if (playerSelection = 'Tijeras' && computerSelection == 'Papel'){
+        return 'GANASTE!'
+    }else if (playerSelection = 'Tijeras' && computerSelection == 'Tijeras'){
+      return 'EMPATE'
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
 
 
 
