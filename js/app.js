@@ -50,20 +50,20 @@ function computerSelection(result) {
     let resultadoOponente = document.querySelector('.resultado-oponente');
     result = Math.floor(Math.random() * 3) + 1;
     switch (result) {
-        case 1: return result= 'Piedra', resultadoOponente.textContent=(`Tu oponente eligío ${result}`)
-        case 2: return result= 'Tijeras', resultadoOponente.textContent=(`Tu oponente eligío ${result}`)
-        default: return result= 'Papel', resultadoOponente.textContent=(`Tu oponente eligío ${result}`)
-     } 
-    
+        case 1: return result = 'Piedra', resultadoOponente.textContent = (`Tu oponente eligío ${result}`)
+        case 2: return result = 'Tijeras', resultadoOponente.textContent = (`Tu oponente eligío ${result}`)
+        default: return result = 'Papel', resultadoOponente.textContent = (`Tu oponente eligío ${result}`)
+    }
+
 }
 
-function match(){
-    if (computerSelection == 1 && choisePiedra.choise == 'Piedra!'){
-       return winLose.textContent = ('EMPATE')
-    } else if (computerSelection == 1 && choisePapel.choise == 'Papel!'){
-       return winLose.textContent = ('GANASTE!')
-    } else if (computerSelection == 1 && choiseTijeras.choise == 'Tijeras!') 
-    return winLose.textContent = ('PERDISTE :(');
+function match() {
+    if (computerSelection == 1 && choisePiedra.choise == 'Piedra!') {
+        return winLose.textContent = ('EMPATE')
+    } else if (computerSelection == 1 && choisePapel.choise == 'Papel!') {
+        return winLose.textContent = ('GANASTE!')
+    } else if (computerSelection == 1 && choiseTijeras.choise == 'Tijeras!')
+        return winLose.textContent = ('PERDISTE :(');
 }
 
 
@@ -71,7 +71,7 @@ function match(){
 
 
 
-        
+
 
 
 
